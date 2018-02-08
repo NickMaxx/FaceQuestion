@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    var obj1 = {
+      name: 'obj1', fn: function () {
+        document.write(this.name);
+      }
+    };
+    var obj2 = { name: 'obj2' };
+    var obj3 = { name: 'obj3' };
+    obj1.fn(); //'obj1'
+    var newFn = obj1.fn;
+    newFn(); //'window'
+    newFn.call(obj2); //'obj2'
+    obj3.fn = newFn;
+    obj3.fn(); //'obj3'
+  </script>
+</body>
+
+</html>
